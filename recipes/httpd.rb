@@ -6,6 +6,7 @@ directory '/var/www' do
   owner 'apache'
   group 'apache'
   mode '0755'
+  recursive true
   action :create
 end
 
