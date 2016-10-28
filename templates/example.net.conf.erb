@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+        ServerName example.net
+        ServerAlias www.example.net
+        ServerAdmin admin@example.net
+        DocumentRoot /var/www/example/public
+
+        ErrorLog /var/log/httpd/example.error.log
+        CustomLog /var/log/httpd/example.access.log combined
+
+        <Directory /var/www/example/public>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All
+                Require all granted
+        </Directory>
+</VirtualHost>

@@ -4,6 +4,12 @@ yum_package 'wget'
 
 # instapp apache and php
 include_recipe 'webserver::httpd'
+
+# install phalcon and percona, if enabled
+if node['httpd']['vhosts']['enabled'] == true
+  include_recipe 'webserver::vhosts'
+end
+
 include_recipe 'webserver::php'
 
 # install phalcon and percona, if enabled

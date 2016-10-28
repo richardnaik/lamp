@@ -1,11 +1,12 @@
 # install httpd package
 yum_package 'httpd'
 
-# create web roots
+# give proper permissions to web files directory
 directory '/var/www' do
   owner 'apache'
   group 'apache'
   mode '0755'
+  recursive true
   action :create
 end
 
