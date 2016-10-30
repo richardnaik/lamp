@@ -1,6 +1,6 @@
 # webserver Cookbook
 
-Provisions a LAMP server on CentOS 7.2 with Apache, PHP 7.0, and Percona Server 5.7. This cookbook was written for 
+Provisions a LAMP server on CentOS 7.2 with Apache, PHP 7.0, and MariaDB Server 10.1. This cookbook was written for 
 personal use as both a development enviroment and a production server, and also for experimenting with
 Chef and Terraform.
 
@@ -46,7 +46,7 @@ This cookbook is specifically built to not depend on any public cookbooks.
   <tr>
     <td><tt>['mysql']['enabled']</tt></td>
     <td>Boolean</td>
-    <td>Enable MySQL. Will grab the latest stable version of Percona 5.7</td>
+    <td>Enable MySQL. Will grab the latest stable version of MariaDB 10.1</td>
     <td><tt>true</tt></td>
   </tr>
 </table>
