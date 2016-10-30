@@ -30,9 +30,5 @@ end
 link '/etc/httpd/sites-enabled/example.net.conf' do
   to '/etc/httpd/sites-available/example.net.conf'
   link_type :hard
-end
-
-# restart the service
-service 'httpd' do
-  action [:restart]
+  notifies :restart, "service[httpd]", :immediately
 end

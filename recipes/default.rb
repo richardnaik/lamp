@@ -18,7 +18,7 @@ if node['php']['phalcon']['enabled'] == true
 end
 
 if node['mysql']['enabled'] == true
-  include_recipe 'webserver::percona'
+  include_recipe 'webserver::mariadb'
 end
 
 # install other helper tools

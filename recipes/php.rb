@@ -38,9 +38,5 @@ end
 # start php-fpm service
 service 'php-fpm' do
   action [:enable, :start]
-end
-
-# restart apache
-service 'httpd' do
-  action [:restart]
+  notifies :restart, "service[httpd]", :immediately
 end

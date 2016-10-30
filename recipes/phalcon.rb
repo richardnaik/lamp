@@ -14,7 +14,10 @@ execute 'phalcon.rpm.sh' do
 end
 
 # install phalcon
-yum_package 'php70u-phalcon'
+yum_package 'php70u-phalcon' do
+  notifies :restart, "service[php-fpm]", :immediately
+  notifies :restart, "service[httpd]", :immediately
+end
 
 # pull down phalcon devtools source
 git '/root/phalcon-devtools' do
@@ -38,13 +41,4 @@ end
 bash 'name' do
   code 'chmod ugo+x /usr/bin/phalcon'
   action :run
-end
-
-# restart Apache and PHP
-service 'httpd' do
-  action :restart
-end
-
-service 'php-fpm' do
-  action :restart
 end
