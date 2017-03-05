@@ -11,11 +11,6 @@ describe service 'php-fpm' do
   it { should be_running }
 end
 
-describe service 'mysql' do
-  it { should be_enabled }
-  it { should be_running }
-end
-
 # verify that applicable ports are listening
 describe port(80) do
   it { should be_listening }

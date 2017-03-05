@@ -1,5 +1,5 @@
-# install these for use in other recipes
-# yum_package 'wget'
+# enable the elep yum repo
+yum_package 'epel-release'
 
 if node['httpd']['enabled'] == true
   include_recipe 'lamp::httpd'

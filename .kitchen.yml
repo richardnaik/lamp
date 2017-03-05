@@ -1,12 +1,5 @@
 driver:
    name: vagrant
-   network:
-     - ["forwarded_port", { guest: 80, host: 8080 }]
-     - ["forwarded_port", { guest: 443, host: 8443 }]
-     - ["forwarded_port", { guest: 3306, host: 8306 }]
-     #- ["private_network", { ip: "192.168.33.10"}]
-   #synced_folders:
-     #- ["C:", "/var/www", {owner: "root"}, "create: true, type: :nfs, dmode=777, fmode=777"]
 
 provisioner:
    name: chef_zero
@@ -19,9 +12,15 @@ platforms:
 
 suites:
   - name: web
+    driver:
+        network:
+           - ["private_network", { ip: '172.16.0.11' }]
+        synced_folders:
+           - ["/Users/ricknaik/Documents/php", "/var/www", {owner: "root"}, "create: true, type: :nfs, dmode=777, fmode=777"]
     run_list:
       - recipe[lamp::default]
     attributes:
+      local_kitchen: true
       httpd:
         enabled: true
       php:
@@ -29,9 +28,13 @@ suites:
       mariadb:
         enabled: false
   - name: db
+    driver:
+        network:
+           - ["private_network", { ip: '172.16.0.12' }]
     run_list:
       - recipe[lamp::default]
     attributes:
+      local_kitchen: true
       httpd:
         enabled: false
       php:

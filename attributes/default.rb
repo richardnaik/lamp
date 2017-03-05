@@ -1,4 +1,4 @@
-# creatre vhost config files and directories
+# apache flag
 default['httpd']['enabled'] = true
 
 # php flag

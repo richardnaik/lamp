@@ -4,11 +4,6 @@ Provisions a LAMP server on CentOS 7.2 with Apache, PHP 7.0, and MariaDB Server 
 personal use as both a development enviroment and a production server, and also for experimenting with
 Chef and Terraform.
 
-To bring up locally first install VirtualBox and Vagrant
-then copy the `.kitchen.yml.example` file into `.kitchen.yml` and
-run `kitchen converge`. Be sure to specify the location of your code in 
-the `synced_folders` option.
-
 A small integration test will check for the appropriate ports and services upon 
 a `kitchen verify` run
 
@@ -38,9 +33,15 @@ This cookbook is specifically built to not depend on any public cookbooks.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['php']['phalcon']['enabled']</tt></td>
+    <td><tt>['httpd']['enabled']</tt></td>
     <td>Boolean</td>
-    <td>Enable the Phalcon framework. Will grab the latest stable version.</td>
+    <td>Enable Apache. Will grab the latest stable version.</td>
+    <td><tt>true</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['php']['enabled']</tt></td>
+    <td>Boolean</td>
+    <td>Enable PHP. Will grab the latest stable version of PHP 7.1.</td>
     <td><tt>true</tt></td>
   </tr>
   <tr>
@@ -55,7 +56,7 @@ This cookbook is specifically built to not depend on any public cookbooks.
 
 ### lamp::default
 
-Just include `lamp` in your node's `run_list`. Only the `default` recipe is required.
+Just include `lamp` in your node's `run_list`. Only the `default` recipe is required. Use the `enabled` attributes above to specify what to install.
 
 ## License and Authors
 

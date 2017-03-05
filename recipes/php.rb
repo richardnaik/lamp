@@ -1,6 +1,4 @@
-# enable the epel and ius yum repos
-yum_package 'epel-release'
-
+# enable the ius yum repo
 remote_file '/root/setup-ius.sh' do
   source 'https://setup.ius.io'
   owner 'root'
