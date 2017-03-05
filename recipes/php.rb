@@ -16,17 +16,20 @@ execute 'setup-ius.sh' do
 end
 
 # install php packages
-yum_package 'php70u-common'
-yum_package 'php70u-devel'
-yum_package 'php70u-fpm'
-yum_package 'php70u-opcache'
-yum_package 'php70u-mysqlnd'
-yum_package 'php70u-cli'
-yum_package 'php70u-intl'
-yum_package 'php70u-pdo'
-yum_package 'php70u-gd'
-yum_package 'php70u-json'
-yum_package 'php70u-pecl-xdebug'
+yum_package 'php71u-common'
+yum_package 'php71u-fpm'
+yum_package 'php71u-opcache'
+yum_package 'php71u-mysqlnd'
+yum_package 'php71u-cli'
+yum_package 'php71u-intl'
+yum_package 'php71u-pdo'
+yum_package 'php71u-gd'
+yum_package 'php71u-json'
+yum_package 'php71u-pecl-xdebug'
+yum_package 'php71u-xml'
+yum_package 'php71u-xmlrpc'
+yum_package 'php71u-mcrypt'
+yum_package 'php71u-mbstring'
 
 # create apache conf file to handle fpm proxy
 template '/etc/httpd/conf.d/php.conf' do
@@ -38,5 +41,5 @@ end
 # start php-fpm service
 service 'php-fpm' do
   action [:enable, :start]
-  notifies :restart, "service[httpd]", :immediately
+  notifies :restart, 'service[httpd]', :immediately
 end

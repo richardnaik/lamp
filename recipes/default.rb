@@ -1,24 +1,13 @@
 # install these for use in other recipes
-yum_package 'git'
-yum_package 'wget'
+# yum_package 'wget'
 
-# instapp apache and php
-include_recipe 'webserver::httpd'
-
-# install phalcon and percona, if enabled
-if node['httpd']['vhosts']['enabled'] == true
-  include_recipe 'webserver::vhosts'
+if node['httpd']['enabled'] == true
+  include_recipe 'lamp::httpd'
+  include_recipe 'lamp::php'
 end
 
-include_recipe 'webserver::php'
-
-# install phalcon and percona, if enabled
-if node['php']['phalcon']['enabled'] == true
-  include_recipe 'webserver::phalcon'
-end
-
-if node['mysql']['enabled'] == true
-  include_recipe 'webserver::mariadb'
+if node['mariadb']['enabled'] == true
+  include_recipe 'lamp::mariadb'
 end
 
 # install other helper tools

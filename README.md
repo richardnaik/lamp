@@ -1,4 +1,4 @@
-# webserver Cookbook
+# lamp Cookbook
 
 Provisions a LAMP server on CentOS 7.2 with Apache, PHP 7.0, and MariaDB Server 10.1. This cookbook was written for 
 personal use as both a development enviroment and a production server, and also for experimenting with
@@ -28,7 +28,7 @@ This cookbook is specifically built to not depend on any public cookbooks.
 
 ## Attributes
 
-### webserver::default
+### lamp::default
 
 <table>
   <tr>
@@ -53,9 +53,9 @@ This cookbook is specifically built to not depend on any public cookbooks.
 
 ## Usage
 
-### webserver::default
+### lamp::default
 
-Just include `webserver` in your node's `run_list`. Only the `default` recipe is required.
+Just include `lamp` in your node's `run_list`. Only the `default` recipe is required.
 
 ## License and Authors
 

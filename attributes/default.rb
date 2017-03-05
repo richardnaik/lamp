@@ -1,8 +1,8 @@
 # creatre vhost config files and directories
-default['httpd']['vhosts']['enabled'] = true
+default['httpd']['enabled'] = true
 
-# phalcon flag
-default['php']['phalcon']['enabled'] = true
+# php flag
+default['php']['enabled'] = true
 
 # mysql flag
-default['mysql']['enabled'] = true
+default['mariadb']['enabled'] = true
