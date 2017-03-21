@@ -41,3 +41,10 @@ service 'php-fpm' do
   action [:enable, :start]
   notifies :restart, 'service[httpd]', :immediately
 end
+
+# install composer
+remote_file '/usr/bin/composer' do
+  source 'https://getcomposer.org/composer.phar'
+  mode 0755
+  not_if { ::File.exist?('/usr/bin/composer.phar') }
+end
