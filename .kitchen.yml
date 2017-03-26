@@ -27,7 +27,7 @@ suites:
         enabled: true
       mariadb:
         enabled: false
-  - name: db
+  - name: mariadb
     driver:
         network:
            - ["private_network", { ip: '172.16.0.12' }]
@@ -40,4 +40,22 @@ suites:
       php:
         enabled: false
       mariadb:
+        enabled: true
+      postgres:
+        enabled: false
+  - name: postgres
+    driver:
+        network:
+           - ["private_network", { ip: '172.16.0.13' }]
+    run_list:
+      - recipe[lamp::default]
+    attributes:
+      local_kitchen: true
+      httpd:
+        enabled: false
+      php:
+        enabled: false
+      mariadb:
+        enabled: false
+      postgres:
         enabled: true

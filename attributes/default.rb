@@ -6,3 +6,6 @@ default['php']['enabled'] = true
 
 # mysql flag
 default['mariadb']['enabled'] = true
+
+# postgres flag
+default['postgres']['enabled'] = true
