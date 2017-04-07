@@ -16,7 +16,7 @@ suites:
         network:
            - ["private_network", { ip: '172.16.0.11' }]
         synced_folders:
-           - ["~/code", "/home/vagrant/code", {owner: "vagrant"}, "create: true, type: :nfs, dmode=777, fmode=777"]
+           - ["~/code", "/var/www/html/code", {owner: "vagrant"}, "create: true, type: :nfs, dmode=777, fmode=777"]
     run_list:
       - recipe[lamp::default]
     attributes:

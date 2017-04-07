@@ -13,7 +13,7 @@ This cookbook is specifically built to not depend on any public cookbooks.
 
 ### Platforms
 
-- CentOS 7.2
+- CentOS 7
 - VirtualBox (for local VMs)
 - Vagrant (with the vagrant-vbguest plugin)
 
@@ -45,9 +45,15 @@ This cookbook is specifically built to not depend on any public cookbooks.
     <td><tt>true</tt></td>
   </tr>
   <tr>
-    <td><tt>['mysql']['enabled']</tt></td>
+    <td><tt>['mariadb']['enabled']</tt></td>
     <td>Boolean</td>
     <td>Enable MySQL. Will grab the latest stable version of MariaDB 10.1</td>
+    <td><tt>true</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['mysql']['postgres']</tt></td>
+    <td>Boolean</td>
+    <td>Enable PostgreSQL. Will grab the latest stable version of PostgreSQL 9.6</td>
     <td><tt>true</tt></td>
   </tr>
 </table>
