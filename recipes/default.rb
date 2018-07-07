@@ -1,4 +1,4 @@
-# enable the elep yum repo
+# enable the epel yum repo
 yum_package 'epel-release'
 
 if node['httpd']['enabled']

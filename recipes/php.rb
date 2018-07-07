@@ -1,33 +1,27 @@
 # enable the ius yum repo
-remote_file '/root/setup-ius.sh' do
-  source 'https://setup.ius.io'
-  owner 'root'
-  group 'root'
-  mode '0755'
-  action :create
+remote_file '/tmp/ius-release.rpm' do
+  source 'https://centos7.iuscommunity.org/ius-release.rpm'
 end
 
-execute 'setup-ius.sh' do
-  cwd '/root'
-  command './setup-ius.sh'
-  action :run
+yum_package 'ius-release' do
+  source '/tmp/ius-release.rpm'
 end
 
 # install php packages
-yum_package 'php71u-common'
-yum_package 'php71u-fpm'
-yum_package 'php71u-opcache'
-yum_package 'php71u-mysqlnd'
-yum_package 'php71u-cli'
-yum_package 'php71u-intl'
-yum_package 'php71u-pdo'
-yum_package 'php71u-gd'
-yum_package 'php71u-json'
-yum_package 'php71u-pecl-xdebug'
-yum_package 'php71u-xml'
-yum_package 'php71u-xmlrpc'
-yum_package 'php71u-mcrypt'
-yum_package 'php71u-mbstring'
+yum_package 'php72u-common'
+yum_package 'php72u-fpm'
+yum_package 'php72u-opcache'
+yum_package 'php72u-mysqlnd'
+yum_package 'php72u-cli'
+yum_package 'php72u-intl'
+yum_package 'php72u-pdo'
+yum_package 'php72u-gd'
+yum_package 'php72u-json'
+yum_package 'php72u-pecl-xdebug'
+yum_package 'php72u-xml'
+yum_package 'php72u-xmlrpc'
+#yum_package 'php72u-mcrypt'
+yum_package 'php72u-mbstring'
 
 # create apache conf file to handle fpm proxy
 template '/etc/httpd/conf.d/php.conf' do

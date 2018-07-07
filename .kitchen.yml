@@ -8,7 +8,7 @@ verifier:
    name: inspec
 
 platforms:
-   - name: centos-7.2
+   - name: centos-7.5
 
 suites:
   - name: web
@@ -26,6 +26,8 @@ suites:
       php:
         enabled: true
       mariadb:
+        enabled: true
+      postgres:
         enabled: false
   - name: mariadb
     driver:
@@ -36,13 +38,12 @@ suites:
     attributes:
       local_kitchen: true
       httpd:
-        enabled: false
+        enabled: true
       php:
-        enabled: false
+        enabled: true
       mariadb:
         enabled: true
-      postgres:
-        enabled: false
+      
   - name: postgres
     driver:
         network:
