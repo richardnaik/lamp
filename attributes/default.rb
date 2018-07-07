@@ -8,4 +8,4 @@ default['php']['enabled'] = true
 default['mariadb']['enabled'] = true
 
 # postgres flag
-default['postgres']['enabled'] = true
+default['postgres']['enabled'] = false
